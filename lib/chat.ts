@@ -8,6 +8,19 @@ export type Message = {
 // Add this type above the complaints object
 type ComplaintCategory = keyof typeof complaints;
 
+// Add this type and variable above the complaints object
+type LastResponseTracker = {
+  [K in ComplaintCategory | "default"]: number;
+};
+
+const lastResponseIndices: LastResponseTracker = {
+  "late delivery": -1,
+  "wrong order": -1,
+  "cold pizza": -1,
+  "missing items": -1,
+  default: -1,
+};
+
 const complaints = {
   "late delivery": [
     "Hey there! Tony from CraftPizza here. I'm really sorry about the delay with your order. Could you share your order number? I'll personally look into what happened and make it right for you! 🕒",
@@ -76,16 +89,34 @@ export function generateResponse(userMessage: string): string {
   // Check each complaint category
   for (const [category, keywords] of Object.entries(complaintKeywords)) {
     if (keywords.some((keyword) => message.includes(keyword))) {
-      return complaints[category as ComplaintCategory][
-        Math.floor(
-          Math.random() * complaints[category as ComplaintCategory].length,
-        )
-      ];
+      const categoryKey = category as ComplaintCategory;
+      const responses = complaints[categoryKey];
+
+      // Get a different random index than the last one used
+      let newIndex;
+      do {
+        newIndex = Math.floor(Math.random() * responses.length);
+      } while (
+        newIndex === lastResponseIndices[categoryKey] &&
+        responses.length > 1
+      );
+
+      // Update the last response index and return the response
+      lastResponseIndices[categoryKey] = newIndex;
+      return responses[newIndex];
     }
   }
 
-  // If no specific complaint is detected, return default response
-  return complaints.default[
-    Math.floor(Math.random() * complaints.default.length)
-  ];
+  // Handle default case with the same logic
+  const defaultResponses = complaints.default;
+  let newIndex;
+  do {
+    newIndex = Math.floor(Math.random() * defaultResponses.length);
+  } while (
+    newIndex === lastResponseIndices.default &&
+    defaultResponses.length > 1
+  );
+
+  lastResponseIndices.default = newIndex;
+  return defaultResponses[newIndex];
 }
