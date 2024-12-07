@@ -33,20 +33,34 @@ export function ChatInput({ onSend, isLoading, disabled }: ChatInputProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex items-end gap-2 p-4">
-      <Textarea
-        placeholder="Type your message here..."
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        onKeyDown={handleKeyDown}
-        rows={1}
-        className="resize-none"
-        disabled={disabled}
-      />
-      <Button type="submit" size="icon" disabled={isLoading || disabled}>
-        <SendHorizontal className="h-4 w-4" />
-        <span className="sr-only">Send message</span>
-      </Button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit} className="flex items-end gap-2 p-4">
+        <Textarea
+          placeholder="Type your message here..."
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyDown}
+          rows={1}
+          className="resize-none"
+          disabled={disabled}
+        />
+        <Button type="submit" size="icon" disabled={isLoading || disabled}>
+          <SendHorizontal className="h-4 w-4" />
+          <span className="sr-only">Send message</span>
+        </Button>
+      </form>
+      {disabled && (
+        <div className="flex justify-between items-center px-4 -mt-2">
+          <p className="text-orange-500 text-sm">
+            Sorry, message limit reached. Please reset the chat to continue.
+          </p>
+          <a
+            href="/about"
+            className="text-sm text-muted-foreground hover:underline">
+            Learn more about this bot →
+          </a>
+        </div>
+      )}
+    </div>
   );
 }
