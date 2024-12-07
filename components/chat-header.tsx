@@ -32,7 +32,7 @@ export function ChatHeader() {
             className="underline hover:text-white">
             HCCS
           </a>{" "}
-          NLP class
+          NLP class (Prof. Machuria M. Johnson)
         </p>
       </div>
     </div>
