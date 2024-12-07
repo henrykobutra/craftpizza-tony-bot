@@ -28,7 +28,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
         <Link
           key={match.index}
           href={match[2]}
-          className="text-primary hover:underline">
+          className="text-primary underline hover:no-underline">
           {match[1]}
         </Link>,
       );

@@ -8,14 +8,15 @@ import { useState } from "react";
 interface ChatInputProps {
   onSend: (message: string) => void;
   isLoading?: boolean;
+  disabled?: boolean;
 }
 
-export function ChatInput({ onSend, isLoading }: ChatInputProps) {
+export function ChatInput({ onSend, isLoading, disabled }: ChatInputProps) {
   const [input, setInput] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (input.trim()) {
+    if (input.trim() && !disabled) {
       onSend(input);
       setInput("");
     }
@@ -24,7 +25,7 @@ export function ChatInput({ onSend, isLoading }: ChatInputProps) {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      if (input.trim()) {
+      if (input.trim() && !disabled) {
         onSend(input);
         setInput("");
       }
@@ -40,8 +41,9 @@ export function ChatInput({ onSend, isLoading }: ChatInputProps) {
         onKeyDown={handleKeyDown}
         rows={1}
         className="resize-none"
+        disabled={disabled}
       />
-      <Button type="submit" size="icon" disabled={isLoading}>
+      <Button type="submit" size="icon" disabled={isLoading || disabled}>
         <SendHorizontal className="h-4 w-4" />
         <span className="sr-only">Send message</span>
       </Button>

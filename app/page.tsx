@@ -9,6 +9,10 @@ import { Message, generateResponse } from "@/lib/chat";
 import { RotateCcw } from "lucide-react";
 import { useState } from "react";
 
+const MESSAGE_LIMIT = 7;
+const LIMIT_REACHED_MESSAGE =
+  "I apologize, but this is a technical demo and the conversation is limited to 7 messages. Please reset the chat or check out the [about](/about) page to learn more about this bot! 🤖";
+
 export default function Home() {
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -21,6 +25,17 @@ export default function Home() {
   ]);
 
   const handleSend = (content: string) => {
+    if (messages.length >= MESSAGE_LIMIT) {
+      const limitMessage: Message = {
+        id: Date.now().toString(),
+        content: LIMIT_REACHED_MESSAGE,
+        role: "assistant",
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, limitMessage]);
+      return;
+    }
+
     const userMessage: Message = {
       id: Date.now().toString(),
       content,
@@ -78,7 +93,10 @@ export default function Home() {
 
           <div className="border-t">
             <SamplePrompts onSelectPrompt={handleSend} />
-            <ChatInput onSend={handleSend} />
+            <ChatInput
+              onSend={handleSend}
+              disabled={messages.length >= MESSAGE_LIMIT}
+            />
           </div>
         </div>
       </div>

@@ -26,10 +26,10 @@ const complaints = {
     "Oh no! Sorry about the missing items! Can you provide your order number? I'll personally ensure the missing items are delivered to you right away! 🚗",
   ],
   default: [
-    "I'm a preview bot built for an NLP class project, and I'm specifically trained to handle common pizza delivery complaints. Your message seems to be about something else. Check out /about to learn more about how I work! 🤖",
-    "Thanks for your message! I'm a demo bot focused on pizza delivery issues. I don't seem to recognize your query type. Visit /about to see what kinds of complaints I can help with! 🍕",
-    "Beep boop! I'm a class project bot with limited capabilities. I can only handle specific pizza-related complaints right now. Feel free to visit /about to learn more about my purpose and limitations! 🎓",
-    "I'm still learning! As a demo bot, I'm currently trained only on pizza delivery complaints. Your message seems to be about something else. Check /about to see what I can do! 🚀",
+    "I'm a preview bot built for an NLP class project, and I'm specifically trained to handle common pizza delivery complaints. Your message seems to be about something else. Check out the [about](/about) page to learn more about how I work! 🤖",
+    "Thanks for your message! I'm a demo bot focused on pizza delivery issues. I don't seem to recognize your query type. Visit the [about](/about) page to see what kinds of complaints I can help with! 🍕",
+    "Beep boop! I'm a class project bot with limited capabilities. I can only handle specific pizza-related complaints right now. Feel free to visit the [about](/about) page to learn more about my purpose and limitations! 🎓",
+    "I'm still learning! As a demo bot, I'm currently trained only on pizza delivery complaints. Your message seems to be about something else. Check the [about](/about) page to see what I can do! 🚀",
   ],
 };
 
