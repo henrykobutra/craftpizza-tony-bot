@@ -1,8 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CraftPizza Bot (Tony)
 
-## Getting Started
+A Next.js-based chatbot demo that handles pizza-related customer service inquiries. Built as part of the Natural Language Processing course at Houston Community College.
 
-First, run the development server:
+## 🍕 Overview
+
+CraftPizza Bot (Tony) is a pattern-matching chatbot that demonstrates basic natural language understanding for common pizza delivery complaints. The bot can handle various scenarios including:
+
+- Late delivery complaints
+- Wrong order/toppings issues
+- Cold pizza complaints
+- Missing items from orders
+
+## 🚀 Tech Stack
+
+- Next.js 15
+- TypeScript
+- Tailwind CSS
+- Lucide Icons
+- Shadcn/UI Components
+
+## 🛠️ Getting Started
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/henrykobutra/craftpizza-tony-bot.git
+cd craftpizza-tony-bot
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
@@ -10,27 +46,46 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🤖 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Simple pattern-matching response system
+- Context-aware responses to avoid repetition
+- Sample prompts for easy testing
+- Message limit (7 messages) to demonstrate demo nature
+- Responsive design with modern UI
+- Markdown link parsing in bot responses
 
-## Learn More
+## 🎓 Educational Purpose
 
-To learn more about Next.js, take a look at the following resources:
+This project was developed as part of the Natural Language Processing course at Houston Community College under the guidance of Professor Machuria M. Johnson. It serves as a demonstration of basic chatbot functionality and pattern matching techniques.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔧 Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `/app` - Next.js app router pages and layouts
+- `/components` - Reusable React components
+- `/lib` - Utility functions and chat logic
+- `/public` - Static assets
 
-## Deploy on Vercel
+## 👨‍💻 Developer
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Created by [Varit (Henry) Kobutra](https://kobutra.com)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Other Projects
+
+- [Background Craft](https://backgroundcraft.com) - Digital agency
+- [Resumo](https://resumo.cc) - AI-powered resume builder
+- [Uncodename](https://uncodename.com) - Project codename generator
+
+## 📄 License
+
+MIT License - Feel free to use this code for educational purposes.
+
+## 🔗 Links
+
+- [GitHub Repository](https://github.com/henrykobutra/craftpizza-tony-bot)
+- [Developer's Website](https://kobutra.com)
+- [LinkedIn](https://linkedin.com/in/henrykobutra)
