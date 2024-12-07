@@ -14,7 +14,7 @@ export function ChatHeader() {
           Your virtual pizza concierge, Tony, is here to help!
         </p>
       </div>
-      <div className="mt-4 text-center text-xs text-orange-100">
+      <div className="mt-4 text-center text-xs text-orange-100 space-y-2">
         <p>
           Created by{" "}
           <a
@@ -33,6 +33,11 @@ export function ChatHeader() {
             HCCS
           </a>{" "}
           NLP class (Prof. Machuria M. Johnson)
+        </p>
+        <p>
+          <a href="/about" className="underline hover:text-white">
+            Learn more about this bot →
+          </a>
         </p>
       </div>
     </div>
