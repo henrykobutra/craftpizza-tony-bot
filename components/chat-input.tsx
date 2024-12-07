@@ -21,12 +21,23 @@ export function ChatInput({ onSend, isLoading }: ChatInputProps) {
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      if (input.trim()) {
+        onSend(input);
+        setInput("");
+      }
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit} className="flex items-end gap-2 p-4">
       <Textarea
         placeholder="Type your message here..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
+        onKeyDown={handleKeyDown}
         rows={1}
         className="resize-none"
       />
